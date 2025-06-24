@@ -5,15 +5,6 @@ import "./App.css";
 export default function Dictionary() {
   let [word, setWord] = useState("");
 
-  function search(event) {
-    event.preventDefault();
-    alert("Please Wait...");
-
-    let key = "f063aad8tb9d2a804775off7e6bf14bb";
-    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${key}`;
-    axios.get(apiUrl).then(handleResponse);
-  }
-
   function handleWordChange(event) {
     console.log(event.target.value);
     setWord(event.target.value);
@@ -21,6 +12,15 @@ export default function Dictionary() {
 
   function handleResponse(response) {
     console.log(response.data);
+  }
+
+  function search(event) {
+    event.preventDefault();
+    alert("Please Wait...");
+
+    let key = "f063aad8tb9d2a804775off7e6bf14bb";
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${key}`;
+    axios.get(apiUrl).then(handleResponse);
   }
 
   return (
