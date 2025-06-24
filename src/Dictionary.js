@@ -11,12 +11,16 @@ export default function Dictionary() {
 
     let key = "f063aad8tb9d2a804775off7e6bf14bb";
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${key}`;
-    axios.get(url).then(handleResponse);
+    axios.get(apiUrl).then(handleResponse);
   }
 
   function handleWordChange(event) {
     console.log(event.target.value);
     setWord(event.target.value);
+  }
+
+  function handleResponse(response) {
+    console.log(response.data);
   }
 
   return (
@@ -31,7 +35,7 @@ export default function Dictionary() {
 
       {word && (
         <p className="searching">
-          Searcing for: <strong>{word}</strong>
+          Searching for: <strong>{word}</strong>
         </p>
       )}
     </div>
