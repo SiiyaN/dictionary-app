@@ -28,12 +28,6 @@ export default function Dictionary() {
           onChange={handleWordChange}
         />
       </form>
-
-      {word && (
-        <p className="searching">
-          Searcing for: <strong>{word}</strong>
-        </p>
-      )}
     </div>
   );
 }
