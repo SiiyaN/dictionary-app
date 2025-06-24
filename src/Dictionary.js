@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./App.css";
 
 export default function Dictionary() {
@@ -7,6 +8,9 @@ export default function Dictionary() {
   function search(event) {
     event.preventDefault();
     alert("Please Wait...");
+
+    let apiUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/hello";
+    axios.get(url).then(handleResponse);
   }
 
   function handleWordChange(event) {
