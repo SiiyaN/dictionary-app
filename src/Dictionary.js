@@ -9,7 +9,8 @@ export default function Dictionary() {
     event.preventDefault();
     alert("Please Wait...");
 
-    let apiUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/hello";
+    let key = "f063aad8tb9d2a804775off7e6bf14bb";
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${key}`;
     axios.get(url).then(handleResponse);
   }
 
