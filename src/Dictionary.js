@@ -1,32 +1,28 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Meaning from "./Meaning.js";
+import Synonyms from "./Synonyms.js";
 import "./App.css";
 
 export default function Dictionary() {
   let [word, setWord] = useState("");
-  let [results, setResults] = useState(null);
 
   function handleWordChange(event) {
+    console.log(event.target.value);
     setWord(event.target.value);
   }
 
   function handleResponse(response) {
-    setResults(response.data);
+    console.log(response.data);
   }
 
   function search(event) {
     event.preventDefault();
-    if (word) {
-      let key = "f063aad8tb9d2a804775off7e6bf14bb";
-      let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${key}`;
-      axios
-        .get(apiUrl)
-        .then(handleResponse)
-        .catch(function (error) {
-          console.error("Error fetching the definition:", error);
-        });
-    }
+    alert("Please Wait...");
+
+    let key = "f063aad8tb9d2a804775off7e6bf14bb";
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${key}`;
+    axios.get(apiUrl).then(handleResponse);
   }
 
   return (
@@ -44,16 +40,6 @@ export default function Dictionary() {
           Searching for: <strong>{word}</strong>
         </p>
       )}
-
-      {results ? (
-        results.meanings ? (
-          results.meanings.map(function (meaning, index) {
-            return <Meaning meaning={meaning} key={index} />;
-          })
-        ) : (
-          <p>No definitions found for this word.</p>
-        )
-      ) : null}
     </div>
   );
 }
