@@ -45,10 +45,15 @@ export default function Dictionary() {
         </p>
       )}
 
-      {results &&
-        results.meanings.map(function (meaning, index) {
-          return <Meaning meaning={meaning} key={index} />;
-        })}
+      {results ? (
+        results.meanings ? (
+          results.meanings.map(function (meaning, index) {
+            return <Meaning meaning={meaning} key={index} />;
+          })
+        ) : (
+          <p>No definitions found for this word.</p>
+        )
+      ) : null}
     </div>
   );
 }
