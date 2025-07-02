@@ -1,0 +1,10 @@
+.definition {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.example {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 10px;
+}
